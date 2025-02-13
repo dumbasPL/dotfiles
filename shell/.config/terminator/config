@@ -1,0 +1,84 @@
+[global_config]
+  geometry_hinting = True
+  scroll_tabbar = True
+  inactive_color_offset = 1.0
+  putty_paste_style = True
+  putty_paste_style_source_clipboard = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.75
+    background_type = transparent
+    background_image = /home/nezu/Pictures/89174589_p0.png
+    font = MesloLGS Nerd Font Mono 14
+    foreground_color = "#ffffff"
+    scrollback_lines = 100000
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    login_shell = True
+    use_system_font = False
+    bold_is_bright = True
+    copy_on_selection = True
+    title_transmit_bg_color = "#813d9c"
+    title_inactive_fg_color = "#9a9996"
+    title_inactive_bg_color = "#613583"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+  [[createch]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = True
+      fullscreen = False
+      size = 1920, 1131
+      last_active_window = True
+    [[[child1]]]
+      type = Notebook
+      parent = child0
+      order = 0
+      labels = None, None, None
+      last_active_term = 9ecb29c3-d9e2-4d9f-b7b1-64ca8ca85408, 774dea2f-0fdb-4412-afa3-4a2a35d353b4, bb759019-3ae3-4141-8db5-ec36b206b9ab
+      active_page = 1
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 0
+      position = 544
+      ratio = 0.500459981600736
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      uuid = 6e2c6787-fae5-4441-8b3b-816abf048cb6
+      directory = /home/nezu/createch/createch-panel/api
+    [[[terminal4]]]
+      type = Terminal
+      parent = child2
+      order = 1
+      profile = default
+      uuid = 9ecb29c3-d9e2-4d9f-b7b1-64ca8ca85408
+      directory = /home/nezu/createch/createch-panel/front
+    [[[terminal5]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 774dea2f-0fdb-4412-afa3-4a2a35d353b4
+      directory = /home/nezu/createch/createch-panel
+    [[[terminal6]]]
+      type = Terminal
+      parent = child1
+      order = 2
+      profile = default
+      uuid = bb759019-3ae3-4141-8db5-ec36b206b9ab
+      directory = ""
+[plugins]

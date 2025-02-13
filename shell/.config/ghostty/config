@@ -1,0 +1,21 @@
+theme = CGA
+cursor-style = block
+shell-integration-features = no-cursor
+background-opacity = 0.80
+copy-on-select = clipboard
+scrollback-limit = 134217728
+font-family = MesloLGS Nerd Font Mono Regular
+font-size = 14
+foreground = ffffff
+selection-background = ffffff
+bold-is-bright = true
+keybind = ctrl+shift+o=new_split:down
+keybind = ctrl+shift+e=new_split:right
+window-height = 45
+window-width = 160
+adw-toolbar-style = raised-border
+auto-update = off
+term = xterm-256color
+mouse-scroll-multiplier = 2
+unfocused-split-opacity = 1
+app-notifications = no-clipboard-copy
