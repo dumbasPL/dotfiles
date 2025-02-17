@@ -65,7 +65,8 @@
             "class<com.mitchellh.ghostty>": "󰞷",
             "class<cs2>": "󰜃",
             "title<.*YouTube Music.*>": "",
-            "class<org.gnome.Nautilus>": ""
+            "class<org.gnome.Nautilus>": "",
+            "class<Plex>": "󰚺"
         }
     },
     "hyprland/window": {
