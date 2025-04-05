@@ -66,7 +66,8 @@
             "class<cs2>": "󰜃",
             "title<.*YouTube Music.*>": "",
             "class<org.gnome.Nautilus>": "",
-            "class<Plex>": "󰚺"
+            "class<Plex>": "󰚺",
+            "class<org.remmina.Remmina>": "󰢹"
         }
     },
     "hyprland/window": {
@@ -82,6 +83,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "interval": 20,
+        "family": "ipv4",
         "format-wifi": "  {essid} ({signalStrength}%) {ipaddr}",
         "format-ethernet": "{ipaddr}",
         "tooltip-format": "{ifname} via {gwaddr}",
