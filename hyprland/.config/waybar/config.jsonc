@@ -61,6 +61,9 @@
         "window-rewrite": {
             "class<google-chrome>": "",
             "class<discord>": "",
+            "class<Slack>": "",
+            "class<teams-for-linux>": "󰊻",
+            "class<thunderbird>": "",
             "class<code>": "",
             "class<com.mitchellh.ghostty>": "󰞷",
             "class<cs2>": "󰜃",
