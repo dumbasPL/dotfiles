@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+#set -euo pipefail
 
 # cd to the directory of this script
 cd "$(dirname "$0")"
