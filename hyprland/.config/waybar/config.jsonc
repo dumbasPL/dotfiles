@@ -17,6 +17,7 @@
     "idle_inhibitor",
     "network",
     "pulseaudio",
+    "battery",
     "clock"
   ],
   "group/usage": {
