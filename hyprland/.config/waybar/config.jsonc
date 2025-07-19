@@ -36,6 +36,10 @@
     "interval": 30,
     "format": "󰋊 {percentage_used}%"
   },
+  "battery": {
+    "format": "󰁹 {capacity}%",
+    "interval": 30
+  },
   "clock": {
     "format": "{:%I:%M %a, %b %d}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -98,7 +102,7 @@
     "format": "{icon} {volume}%",
     "format-muted": "",
     "format-icons": {
-      "default": ["", "", " "]
+      "default": ["", "", ""]
     },
     "scroll-step": 2,
     "on-click": "pavucontrol -t 3"
