@@ -19,3 +19,4 @@ term = xterm-256color
 mouse-scroll-multiplier = 2
 unfocused-split-opacity = 1
 app-notifications = no-clipboard-copy
+quit-after-last-window-closed = false
