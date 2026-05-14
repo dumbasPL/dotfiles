@@ -60,7 +60,11 @@
       "17": "7",
       "18": "8",
       "19": "9",
-      "20": "10"
+      "20": "10",
+      // for multiple special workspaces
+      "magic0": "magic",
+      "magic1": "magic",
+      "magic2": "magic"
     },
     "window-rewrite": {
       "class<google-chrome>": "",
