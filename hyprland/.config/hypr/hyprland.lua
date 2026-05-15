@@ -1,8 +1,4 @@
-
-hl.monitor({ output = "DP-2", mode = "preferred", position = "0x0", scale = "1" })
-hl.monitor({ output = "HDMI-A-1", mode = "preferred", position = "2560x360", scale = "1" })
-hl.monitor({ output = "HDMI-A-2", mode = "preferred", position = "2560x360", scale = "1" })
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "1" })
+local local_end = require("hyprland_local")
 
 hl.on("hyprland.start", function ()
   local cursor_theme = "volantes_cursors"
@@ -69,6 +65,7 @@ hl.config({
   },
   input = {
     kb_layout = "pl",
+    kb_options = "caps:none",
     repeat_rate = 25,
     repeat_delay = 250,
     sensitivity = -0.4,
@@ -114,6 +111,17 @@ hl.config({
     force_split = 0, -- split follows mouse
     preserve_split = true,
   }
+})
+
+hl.device({
+  name = "pixa3854:00-093a:0274-touchpad",
+  accel_profile = "adaptive",
+  sensitivity = -0.2,
+})
+hl.device({
+  name = "ven_04f3:00-04f3:311c-touchpad",
+  accel_profile = "adaptive",
+  sensitivity = -0.3,
 })
 
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
@@ -423,3 +431,7 @@ end)
 hl.bind("SUPER + grave", toggle_special)
 hl.bind("SUPER + CTRL + grave", move_to_special)
 hl.bind("SUPER + SHIFT + grave", move_out_of_special)
+
+if type(local_end) == "function" then
+  local_end()
+end
