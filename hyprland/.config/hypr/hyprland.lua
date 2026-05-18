@@ -119,6 +119,11 @@ hl.device({
   sensitivity = -0.2,
 })
 hl.device({
+  name = "dll0945:00-04f3:311c-touchpad",
+  accel_profile = "adaptive",
+  sensitivity = -0.25,
+})
+hl.device({
   name = "ven_04f3:00-04f3:311c-touchpad",
   accel_profile = "adaptive",
   sensitivity = -0.3,
@@ -152,6 +157,9 @@ hl.gesture({fingers = 3, direction = "horizontal", action = "workspace"})
 hl.gesture({fingers = 4, direction = "horizontal", action = "workspace"})
 
 local terminal_cmd = "ghostty +new-window"
+
+hl.bind("SUPER_R", function() end)
+hl.bind("SUPER_L", function() end)
 
 hl.bind("SUPER + R", hl.dsp.exec_cmd(terminal_cmd))
 hl.bind("SUPER + return", hl.dsp.exec_cmd("hyprlauncher"))
@@ -259,6 +267,14 @@ hl.window_rule({
   size = {"(monitor_w*0.4)", "(monitor_h*0.4)"},
   move = {"((monitor_w*1)-window_w-8)", "(40)"},
 })
+
+-- hl.window_rule({
+--   name = "looking-glass-client",
+--   match = {
+--     class = "^looking-glass-client$",
+--   },
+--   workspace = "1",
+-- })
 
 local function float_window(match, name)
   hl.window_rule({

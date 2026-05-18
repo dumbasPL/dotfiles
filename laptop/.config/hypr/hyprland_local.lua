@@ -13,6 +13,11 @@ return function ()
   hl.config({
     general = {
       gaps_workspaces = 32
-    }
+    },
+    decoration = {
+      blur = {
+        enabled = false,
+      },
+    },
   })
 end
