@@ -1,7 +1,7 @@
 theme = CGA
 cursor-style = block
 shell-integration-features = no-cursor
-background-opacity = 0.6
+background-opacity = 0.8
 copy-on-select = clipboard
 scrollback-limit = 134217728
 font-family = MesloLGS Nerd Font Mono Regular
