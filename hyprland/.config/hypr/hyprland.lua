@@ -91,7 +91,7 @@ hl.config({
   misc = {
     focus_on_activate = true,
     enable_anr_dialog = false,
-    close_special_on_empty = false,
+    close_special_on_empty = true,
   },
   binds = {
     scroll_event_delay = 0,
@@ -391,63 +391,17 @@ hl.bind("SUPER + ALT + left", move_to_workspace_relative(false))
 
 -- per monitor special
 local special_name = "magic"
-
-local function toggle_special(force_close)
-  local current_monitor = hl.get_active_monitor()
-  if not current_monitor then return end
-  local has_special = force_close or current_monitor.active_special_workspace ~= nil
-  local monitors = hl.get_monitors()
-  for _, monitor in ipairs(monitors) do
-    -- toggle_special doesn't allow specifying the monitor, so we have to focus it first
-    -- this will also close any existing special workspace on that monitor
-    hl.dispatch(hl.dsp.focus({workspace = monitor.active_workspace}))
-    if not has_special then
-      hl.dispatch(hl.dsp.workspace.toggle_special(special_name .. tostring(monitor.id)))
-    end
-  end
-  -- restore original focus
-  hl.dispatch(hl.dsp.focus({monitor = current_monitor}))
-
-  -- spawn terminal if the special workspace on the current monitor is empty
-  local current_special = current_monitor.active_special_workspace
-  if not has_special and current_special and current_special.windows == 0 then
-    hl.dispatch(hl.dsp.exec_cmd(terminal_cmd, { workspace = current_special.id }))
-  end
+local function get_special_name()
+  local monitor = hl.get_active_monitor()
+  if not monitor then return special_name end
+  return special_name .. tostring(monitor.id)
 end
 
-local function move_to_special()
-  local current_monitor = hl.get_active_monitor()
-  if not current_monitor then return end
-  local special_workspace = current_monitor.active_special_workspace
-  if special_workspace then return end
-  local name = special_name .. tostring(current_monitor.id)
-  hl.dispatch(hl.dsp.window.move({workspace = "special:" .. name, follow = false}))
-  toggle_special(false)
-end
+hl.workspace_rule({ workspace = "s[true]", on_created_empty = terminal_cmd })
 
-local function move_out_of_special()
-  hl.dispatch(hl.dsp.window.move({workspace = "+0", follow = false}))
-  toggle_special(true)
-end
-
-hl.on('window.close', function(window)
-  if not window.workspace or not window.workspace.special then
-    return
-  end
-  local active_count = 0
-  for _, monitor in ipairs(hl.get_monitors()) do
-    if monitor.active_special_workspace then
-      active_count = active_count + monitor.active_special_workspace.windows
-    end
-  end
-  if active_count <= 1 then
-    toggle_special(true)
-  end
-end)
-
-hl.bind("SUPER + grave", toggle_special)
-hl.bind("SUPER + CTRL + grave", move_to_special)
-hl.bind("SUPER + SHIFT + grave", move_out_of_special)
+hl.bind("SUPER + grave", function() hl.dispatch(hl.dsp.workspace.toggle_special(get_special_name())) end)
+hl.bind("SUPER + CTRL + grave", function() hl.dispatch(hl.dsp.window.move({workspace = "special:" .. get_special_name(), follow = true})) end)
+hl.bind("SUPER + SHIFT + grave", hl.dsp.window.move({workspace = "+0", follow = true}))
 
 if type(local_end) == "function" then
   local_end()
