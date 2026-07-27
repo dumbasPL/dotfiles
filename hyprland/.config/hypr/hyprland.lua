@@ -116,7 +116,7 @@ hl.config({
 hl.device({
   name = "pixa3854:00-093a:0274-touchpad",
   accel_profile = "adaptive",
-  sensitivity = -0.2,
+  sensitivity = -0.1,
 })
 hl.device({
   name = "dll0945:00-04f3:311c-touchpad",
