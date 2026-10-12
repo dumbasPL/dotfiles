@@ -86,7 +86,57 @@ hl.config({
   },
   group = {
     insert_after_current = false,
-    -- groupbar = {}, -- TODO
+
+    -- Border for grouped windows, using the groupbar palette below
+    col = {
+      border_active = { colors = { "#33ccffee", "#00ff99ee" }, angle = 45 },
+      border_inactive = "#595959cc",
+      border_locked_active = { colors = { "#ed0983ff", "#ed098377" }, angle = 45 },
+      border_locked_inactive = "#a3316ecc",
+    },
+
+    groupbar = {
+      enabled = true,
+      disable_when_only = false,
+      gradients = true,
+
+      -- same family as waybar
+      font_family = "MesloLGS Nerd Font Propo",
+      font_size = 12,
+      font_weight_active = "bold",
+      font_weight_inactive = "normal",
+
+      height = 26,
+      gaps_in = 2,
+      gaps_out = 2,
+      keep_upper_gap = false,
+      indicator_height = 0, -- no underline
+      indicator_gap = 2,
+      rounding = 0,
+      rounding_power = 2,
+      gradient_rounding = 13, -- pill, fits inside the 16px window rounding
+      gradient_rounding_power = 2,
+      round_only_edges = true,
+      gradient_round_only_edges = true,
+
+      render_titles = true,
+      text_offset = 0,
+      text_padding = 6,
+      text_color = "#111111ff", -- dark titles on the bright active gradient
+      text_color_inactive = "#ffffffee",
+
+      -- same palette as the window borders, pinned style pink for locked groups
+      col = {
+        active = "#33ccff", -- solid color for the focused (foreground) tab
+        inactive = "#595959",
+        locked_active = "#ed0983",
+        locked_inactive = "#a3316e",
+      },
+
+      scrolling = true,
+      middle_click_close = true,
+      blur = false,
+    },
   },
   misc = {
     focus_on_activate = true,
@@ -143,6 +193,7 @@ hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49, bezier = "l
 hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46, bezier = "almostLinear" })
 hl.animation({ leaf = "fade",          enabled = true, speed = 3.03, bezier = "quick" })
+hl.animation({ leaf = "fadeSwitch",    enabled = false }) -- no crossfade when switching group tabs
 hl.animation({ leaf = "layers",        enabled = true, speed = 3.81, bezier = "easeOutQuint" })
 hl.animation({ leaf = "layersIn",      enabled = true, speed = 1.2,  bezier = "quick",  style = "fade" })
 hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,  bezier = "linear", style = "fade" })
