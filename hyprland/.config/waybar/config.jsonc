@@ -9,6 +9,7 @@
     "hyprland/window"
   ],
   "modules-right": [
+    "custom/aibar",
     "group/usage",
     "systemd-failed-units",
     "privacy",
@@ -20,6 +21,13 @@
     "battery",
     "clock"
   ],
+  "custom/aibar": {
+    "exec": "ai-usagebar --vendor opencode-go --format '{ocg_rolling_pct}%/{ocg_weekly_pct}%/{ocg_monthly_pct}% {ocg_monthly_reset}'",
+    "exec-if": "which ai-usagebar",
+    "return-type": "json",
+    "interval": 300,
+    "tooltip": true
+  },
   "group/usage": {
     "orientation": "inherit",
     "modules": ["cpu", "memory", "disk"]
