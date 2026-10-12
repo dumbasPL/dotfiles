@@ -9,3 +9,4 @@ fi
 if [ -d "$HOME/.deno" ]; then
     . "$HOME/.deno/env"
 fi
+export IDAPYTHON_VENV_EXECUTABLE="/home/nezu/.idapro/venv/bin/python3"
