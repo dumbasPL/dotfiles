@@ -6,6 +6,7 @@
 
 hl.monitor({ output = "eDP-1", mode = "preferred", position = "0x0", scale = "1" })
 hl.monitor({ output = "desc:LG Electronics 27GL850 006NTTQD3057", mode = "2560x1440@120.00Hz", position = "auto-center-up", scale = "1" })
+hl.monitor({ output = "desc:Dell Inc. DELL U3425WE 7CYZ3Z3", mode = "3440x1440@120.00Hz", position = "auto-center-up", scale = "1" })
 hl.monitor({ output = "", mode = "preferred", position = "auto-center-up", scale = "1" })
 
 -- function executed at the end of the config
