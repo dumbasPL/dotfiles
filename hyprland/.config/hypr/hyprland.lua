@@ -339,6 +339,12 @@ float_window({initial_title = "^(Yubico Authenticator)$"}, "yubico-authenticator
 float_window({class = "^(xdg-desktop-portal-gtk)$"}, "xdg-desktop-portal-gtk")
 float_window({title = "Remmina Remote Desktop Client"}, "remmina-picker")
 
+hl.window_rule({
+  name = "fix-chrom-scroll",
+  match = { class = "^google-chrome$" },
+  scroll_touchpad = 2,
+})
+
 -- smart gaps (except special)
 hl.workspace_rule({ workspace = "w[tv1]s[false]", gaps_out = 0, gaps_in = 0 })
 hl.workspace_rule({ workspace = "f[1]s[false]", gaps_out = 0, gaps_in = 0 })
