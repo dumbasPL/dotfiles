@@ -234,7 +234,7 @@ hl.bind("SUPER + A", hl.dsp.window.tag({tag = "keepaspectratio"}))
 -- groups
 hl.bind("SUPER + tab", hl.dsp.group.toggle())
 hl.bind("SUPER + SHIFT + tab", hl.dsp.window.move({out_of_group = true}))
-hl.bind("SUPER + CTRL + tab", hl.dsp.group.lock_active())
+hl.bind("SUPER + CTRL + tab", hl.dsp.group.lock())
 hl.bind("ALT + tab", hl.dsp.group.next())
 hl.bind("ALT + SHIFT + tab", hl.dsp.group.prev())
 
@@ -448,7 +448,11 @@ local function get_special_name()
   return special_name .. tostring(monitor.id)
 end
 
-hl.workspace_rule({ workspace = "s[true]", on_created_empty = terminal_cmd })
+hl.on("workspace.created", function (workspace)
+  if workspace.is_empty then
+    hl.dispatch(hl.dsp.exec_cmd(terminal_cmd, {workspace = workspace.id}))
+  end
+end)
 
 hl.bind("SUPER + grave", function() hl.dispatch(hl.dsp.workspace.toggle_special(get_special_name())) end)
 hl.bind("SUPER + CTRL + grave", function() hl.dispatch(hl.dsp.window.move({workspace = "special:" .. get_special_name(), follow = true})) end)
