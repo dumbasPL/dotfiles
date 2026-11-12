@@ -58,6 +58,14 @@ hl.config({
       color = "#1a1a1aee",
     },
     -- glow = {},
+    wobble = {
+      enabled = true,
+      mesh = 32,
+      damping = 15,
+      stiffness = 200,
+      mass = 1,
+      intensity = 0.2,
+    }
   },
   animations = {
     enabled = true,
@@ -160,7 +168,7 @@ hl.config({
   dwindle = {
     force_split = 0, -- split follows mouse
     preserve_split = true,
-  }
+  },
 })
 
 hl.device({
