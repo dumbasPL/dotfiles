@@ -463,7 +463,7 @@ local function get_special_name()
 end
 
 hl.on("workspace.created", function (workspace)
-  if workspace.is_empty then
+  if workspace.is_empty and workspace.special then
     hl.dispatch(hl.dsp.exec_cmd(terminal_cmd, {workspace = workspace.id}))
   end
 end)
